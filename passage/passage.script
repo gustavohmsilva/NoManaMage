@@ -1,11 +1,9 @@
--- passage.script
 go.property('sprite', hash(''))
 go.property('destination', hash(''))
 go.property('destiny_position', vmath.vector3())
 require 'modules.positions'
 
 function init(self)
-	self.my_address = msg.url()
 	msg.post('#sprite', 'play_animation', {id = self.sprite})
 end
 

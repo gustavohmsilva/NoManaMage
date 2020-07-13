@@ -15,6 +15,10 @@ local function unload_dungeon_learning_1(self)
 	msg.post('level_selector#dungeon_learning_1', 'unload')
 end
 
+local function unload_dungeon_learning_2(self)
+	msg.post('level_selector#dungeon_learning_2', 'unload')
+end
+
 local function load_dungeon_entrance(self)
 	msg.post('level_selector#dungeon_entrance', 'load')
 	msg.post('level_selector#dungeon_entrance', 'enable')
@@ -26,20 +30,29 @@ local function load_dungeon_learning_1(self)
 	
 end
 
+local function load_dungeon_learning_2(self)
+	msg.post('level_selector#dungeon_learning_2', 'load')
+	msg.post('level_selector#dungeon_learning_2', 'enable')
+end
+
 function init(self)
 	msg.post('.', 'acquire_input_focus')
 	load_main_menu(self)
 end
 
-function on_message(self, message_id, message)
+function on_message(self, message_id, message, sender)
 	if message_id == hash('start_game') then
 		unload_main_menu(self)
 		load_dungeon_entrance(self)
 	elseif message_id == hash('go_dungeon_learning_1') then
 		unload_dungeon_entrance(self)
+		unload_dungeon_learning_2(self)
 		load_dungeon_learning_1(self)
 	elseif message_id == hash("go_dungeon_entrance") then
-		load_dungeon_entrance(self)
 		unload_dungeon_learning_1(self)
+		load_dungeon_entrance(self)
+	elseif message_id == hash('go_dungeon_learning_2') then
+		unload_dungeon_learning_1(self)
+		load_dungeon_learning_2(self)
 	end
 end

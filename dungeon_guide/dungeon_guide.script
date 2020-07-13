@@ -1,10 +1,21 @@
+go.property('current_collection', hash(''))
+
 function init(self)
-	self.dialogs = {
+	self.dialogs_entrance = {
 		'OH DEAR MAGE',
 		'YOU ARE SO LOST!',
 		'THE DOOR BEHIND YOU JUST\nCLOSED FOREVER',
 		'YOU CAN ONLY GO FORWARD NOW',
 		'I HOPE YOU HAVE ENOUGH MANA...',
+		''
+	}
+
+	self.dialogs_level_2 = {
+		'IT SEEMS YOU ARE DONE FOR',
+		'UNLESS YOU KNOW HOW TO TELEPORT',
+		'IT WOULD BE CONVENIENT IF YOU COUD...',
+		'IMAGINE THAT,\nJUST PRESSING THE SPACE BAR',
+		'AND BEING ABLE TO TRAVEL AROUND...',
 		''
 	}
 
@@ -17,6 +28,11 @@ function init(self)
 				not self.val_one_time_trigger
 			then
 				self.val_one_time_trigger = true
+				if self.current_collection == hash('dungeon_learning_2') then
+					self.dialogs = self.dialogs_level_2
+				else
+					self.dialogs = self.dialogs_entrance
+				end
 				for index, phrase in ipairs(self.dialogs) do
 					if index == 1 then
 						label.set_text('#label', phrase)

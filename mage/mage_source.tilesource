@@ -16,6 +16,15 @@ animations {
   flip_vertical: 0
 }
 animations {
+  id: "dungeon_guide_looking_left"
+  start_tile: 7
+  end_tile: 7
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
   id: "mage"
   start_tile: 1
   end_tile: 1
