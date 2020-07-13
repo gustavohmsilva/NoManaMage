@@ -1,0 +1,42 @@
+function init(self)
+	self.dialogs = {
+		'OH DEAR MAGE',
+		'YOU ARE SO LOST!',
+		'THE DOOR BEHIND YOU JUST\nCLOSED FOREVER',
+		'YOU CAN ONLY GO FORWARD NOW',
+		'I HOPE YOU HAVE ENOUGH MANA...',
+		''
+	}
+
+	self.custom = {
+		val_one_time_trigger = false,
+		fn_message_aware_of_mage = function(self, msg_id, msg)
+			if 
+				msg_id == hash('collision_response') and 
+				msg.own_group == hash('awareness') and
+				not self.val_one_time_trigger
+			then
+				self.val_one_time_trigger = true
+				for index, phrase in ipairs(self.dialogs) do
+					if index == 1 then
+						label.set_text('#label', phrase)
+					else
+						timer.delay(
+							index * 2, 
+							false,
+							(function() label.set_text('#label', phrase) end)
+						)
+					end
+				end
+			end
+		end
+	}
+end
+
+function on_message(self, message_id, message, sender)
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_message') then
+			fn(self, message_id, message)
+		end
+	end
+end

@@ -1,0 +1,18 @@
+-- passage.script
+go.property('sprite', hash(''))
+go.property('destination', hash(''))
+go.property('destiny_position', vmath.vector3())
+require 'modules.positions'
+
+function init(self)
+	self.my_address = msg.url()
+	msg.post('#sprite', 'play_animation', {id = self.sprite})
+end
+
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash('trigger_response') and message.other_group == hash('mage') then
+		msg.post('game:/level_selector#loader', self.destination)
+		mage_spawn_position = self.destiny_position
+	end
+end

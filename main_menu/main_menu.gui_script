@@ -1,0 +1,18 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash('touch') and action.released then
+		local text_play_btn = gui.get_node('play_btn')
+		if gui.pick_node(text_play_btn, action.x, action.y) then
+			msg.post('game:/level_selector#loader', 'start_game')
+		end
+	end
+	if action_id == hash('touch') and action.released then
+		local text_quit_btn = gui.get_node('quit_btn')
+		if gui.pick_node(text_quit_btn, action.x, action.y) then
+			msg.post('@system:', 'exit', {code = 0})
+		end
+	end
+end

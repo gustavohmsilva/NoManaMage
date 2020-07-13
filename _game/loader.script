@@ -1,0 +1,45 @@
+local function load_main_menu(self)
+	msg.post('level_selector#main_menu', 'load')
+	msg.post('level_selector#main_menu', 'enable')
+end
+
+local function unload_main_menu(self)
+	msg.post('level_selector#main_menu', 'unload')
+end
+
+local function unload_dungeon_entrance(self)
+	msg.post('level_selector#dungeon_entrance', 'unload')
+end
+
+local function unload_dungeon_learning_1(self)
+	msg.post('level_selector#dungeon_learning_1', 'unload')
+end
+
+local function load_dungeon_entrance(self)
+	msg.post('level_selector#dungeon_entrance', 'load')
+	msg.post('level_selector#dungeon_entrance', 'enable')
+end
+
+local function load_dungeon_learning_1(self)
+	msg.post('level_selector#dungeon_learning_1', 'load')
+	msg.post('level_selector#dungeon_learning_1', 'enable')
+	
+end
+
+function init(self)
+	msg.post('.', 'acquire_input_focus')
+	load_main_menu(self)
+end
+
+function on_message(self, message_id, message)
+	if message_id == hash('start_game') then
+		unload_main_menu(self)
+		load_dungeon_entrance(self)
+	elseif message_id == hash('go_dungeon_learning_1') then
+		unload_dungeon_entrance(self)
+		load_dungeon_learning_1(self)
+	elseif message_id == hash("go_dungeon_entrance") then
+		load_dungeon_entrance(self)
+		unload_dungeon_learning_1(self)
+	end
+end
