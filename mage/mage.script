@@ -18,6 +18,15 @@ function init(self)
 				self.custom.val_move.x = 1
 			end	
 		end,
+		fn_input_teleport = function(self, act_id, act)
+			if act_id == hash('teleport') then
+				if act.pressed then
+					sprite.play_flipbook('#teleport_zone', 'active_teleport')
+				elseif act.released then
+					sprite.play_flipbook('#teleport_zone', 'inactive_teleport')
+				end
+			end	
+		end,
 		fn_update_move = function(self, dt)
 			if self.custom.val_move ~= vmath.vector3() then
 				sound.play('#step_on_stone')
