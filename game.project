@@ -16,6 +16,7 @@ input_method = HiddenInputField
 [project]
 title = NoManaMage
 version = 0.1
+dependencies = https://github.com/subsoap/defos/archive/master.zip
 
 [graphics]
 default_texture_min_filter = nearest

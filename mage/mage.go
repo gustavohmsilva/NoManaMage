@@ -107,7 +107,7 @@ embedded_components {
   id: "teleport_zone"
   type: "sprite"
   data: "tile_set: \"/mage/teleport_area.tilesource\"\n"
-  "default_animation: \"inactive_teleport\"\n"
+  "default_animation: \"active_teleport\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
   ""

@@ -3,6 +3,7 @@ require 'modules.positions'
 function init(self)
 	msg.post('.', 'acquire_input_focus')
 	msg.post('/mage_cam', 'acquire_camera_focus')
+	msg.post('#teleport_zone', 'disable')
 	-- All personalized functions for the game object
 	self.custom = {
 		const_speed = 960,
@@ -21,9 +22,9 @@ function init(self)
 		fn_input_teleport = function(self, act_id, act)
 			if act_id == hash('teleport') then
 				if act.pressed then
-					sprite.play_flipbook('#teleport_zone', 'active_teleport')
+					msg.post('#teleport_zone', 'enable')
 				elseif act.released then
-					sprite.play_flipbook('#teleport_zone', 'inactive_teleport')
+					msg.post('#teleport_zone', 'disable')
 				end
 			end	
 		end,

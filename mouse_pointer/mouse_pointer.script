@@ -1,0 +1,48 @@
+function init(self)
+	msg.post('.', 'acquire_input_focus')
+	msg.post('#sprite', 'disable')
+	self.custom = {
+		mouse_position = vmath.vector3(0, 0, 0.05),
+		fn_input_teleport_pointer = function(self, act_id, act)
+			for i,v in pairs(act) do
+				print(i,v)
+			end
+			self.custom.mouse_position.x = act.screen_x
+			self.custom.mouse_position.y = act.screen_y
+		end,
+		fn_input_enable_pointer = function(self, act_id, act)
+			if act_id == hash('teleport') then
+				if act.pressed then
+					msg.post('#sprite', 'enable')
+				elseif act.released then
+					msg.post('#sprite', 'disable')
+				end
+			end	
+		end,	
+		fn_update_move = function(self)
+			go.set_position(self.custom.mouse_position)
+		end	
+	}
+end
+function update(self, dt)
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_update') then 
+			fn(self, dt) 
+		end
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_message') then 
+			fn(self, message_id, message) 
+		end
+	end
+end
+function on_input(self, action_id, action)
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_input') then 
+			fn(self, action_id, action) 
+		end
+	end
+end
