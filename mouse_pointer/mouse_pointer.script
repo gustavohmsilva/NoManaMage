@@ -7,8 +7,8 @@ function init(self)
 			for i,v in pairs(act) do
 				print(i,v)
 			end
-			self.custom.mouse_position.x = act.screen_x
-			self.custom.mouse_position.y = act.screen_y
+			self.custom.mouse_position.x = act.x
+			self.custom.mouse_position.y = act.y
 		end,
 		fn_input_enable_pointer = function(self, act_id, act)
 			if act_id == hash('teleport') then
