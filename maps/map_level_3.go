@@ -174,7 +174,7 @@ embedded_components {
   "  data: 162.3745\n"
   "  data: 99.2625\n"
   "  data: 9.6\n"
-  "  data: 23.298\n"
+  "  data: 24.3845\n"
   "  data: 169.0295\n"
   "  data: 10.0\n"
   "  data: 131.062\n"

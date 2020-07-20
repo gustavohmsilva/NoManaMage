@@ -1,9 +1,5 @@
-require 'modules.positions'
-
 function init(self)
-	-- Add initialization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	print(msg.url())
 end
 
 function final(self)
@@ -13,27 +9,9 @@ function final(self)
 end
 
 function update(self, dt)
-	local mana_potion_image = gui.get_node('mana_potion_image')
-	local hp_potion_image = gui.get_node('hp_potion_image')
-	if mage_has_key then
-		gui.set_enabled(gui.get_node('key_image'), true)
-	else
-		gui.set_enabled(gui.get_node('key_image'), false)
-	end
-	if mage_life == 2 then
-		gui.play_flipbook(hp_potion_image, 'hp_giga_potion')
-	elseif mage_life == 1 then
-		gui.play_flipbook(hp_potion_image, 'hp_potion')
-	else
-		gui.set_enabled(gui.get_node('hp_potion_image'), false)
-	end
-	if mage_mana == 2 then
-		gui.play_flipbook(mana_potion_image, 'mana_giga_potion')
-	elseif mage_mana == 1 then
-		gui.play_flipbook(mana_potion_image, 'mana_potion')
-	else
-		gui.set_enabled(gui.get_node('mana_potion_image'), false)
-	end
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
 end
 
 function on_message(self, message_id, message, sender)

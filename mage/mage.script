@@ -1,6 +1,8 @@
 require 'modules.positions'
+require 'modules.smath'
 
 function init(self)
+	print(msg.url())
 	msg.post('.', 'acquire_input_focus')
 	msg.post('/mage_cam', 'acquire_camera_focus')
 	msg.post('#teleport_zone', 'disable')
@@ -28,6 +30,23 @@ function init(self)
 				end
 			end	
 		end,
+		fn_message_teleport_command = function(self, msg_id, msg)
+			if msg_id == hash('teleport_trigger') then
+				local mage_position = go.get_world_position('mage')
+				local teleport_destination = go.get_world_position('mouse_pointer')
+				if 
+					smath.distance_from(mage_position, teleport_destination) < 64 
+				and
+	 				mage_mana > 0 
+				then
+					go.set_position(teleport_destination)
+					mage_mana = mage_mana - 1
+				else
+					print('impossible to teleport')	
+				end
+			end
+		end,
+
 		fn_update_move = function(self, dt)
 			if self.custom.val_move ~= vmath.vector3() then
 				sound.play('#step_on_stone')

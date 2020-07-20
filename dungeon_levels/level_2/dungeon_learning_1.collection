@@ -43,6 +43,7 @@ instances {
 instances {
   id: "mage_cam"
   prototype: "/mage/mage_cam.go"
+  children: "mouse_pointer"
   position {
     x: -152.0
     y: -80.0
@@ -159,6 +160,26 @@ instances {
 instances {
   id: "hud"
   prototype: "/hud/hud.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mouse_pointer"
+  prototype: "/mouse_pointer/mouse_pointer.go"
   position {
     x: 0.0
     y: 0.0

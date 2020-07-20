@@ -4,9 +4,6 @@ function init(self)
 	self.custom = {
 		mouse_position = vmath.vector3(0, 0, 0.05),
 		fn_input_teleport_pointer = function(self, act_id, act)
-			for i,v in pairs(act) do
-				print(i,v)
-			end
 			self.custom.mouse_position.x = act.x
 			self.custom.mouse_position.y = act.y
 		end,
@@ -21,7 +18,13 @@ function init(self)
 		end,	
 		fn_update_move = function(self)
 			go.set_position(self.custom.mouse_position)
-		end	
+		end,
+		fn_input_get_touch = function(self, act_id, act)
+			if act_id == hash('touch') and act.released then
+				
+				msg.post('mage#script', 'teleport_trigger')
+			end
+		end
 	}
 end
 function update(self, dt)
