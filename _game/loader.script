@@ -36,6 +36,7 @@ local function load_dungeon_learning_2(self)
 end
 
 function init(self)
+	msg.post("@render:", "use_fixed_fit_projection", { near = -1, far = 1 })
 	msg.post('.', 'acquire_input_focus')
 	load_main_menu(self)
 end

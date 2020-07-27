@@ -1,4 +1,7 @@
+require 'modules.smath'
+
 function init(self)
+	print(msg.url())
 	msg.post('.', 'acquire_input_focus')
 	msg.post('#sprite', 'disable')
 	self.custom = {
@@ -11,6 +14,7 @@ function init(self)
 			if act_id == hash('teleport') then
 				if act.pressed then
 					msg.post('#sprite', 'enable')
+					sprite.play_flipbook('#sprite', 'flame')
 				elseif act.released then
 					msg.post('#sprite', 'disable')
 				end
@@ -18,6 +22,21 @@ function init(self)
 		end,	
 		fn_update_move = function(self)
 			go.set_position(self.custom.mouse_position)
+		end,
+		flame_sprite = 'flame',
+		fn_update_flame_active = function(self) 
+			local mage_position = go.get_world_position('mage')
+			local pointer_position = go.get_world_position('.')
+			if smath.distance_from(mage_position, pointer_position) < 66 then
+				self.custom.flame_sprite = 'flame'
+			else
+				self.custom.flame_sprite = 'dead_flame'
+			end
+		end,
+		fn_message_change_pointer_style = function(self, msg_id, msg)
+			if msg_id == hash('animation_done') then
+				sprite.play_flipbook('#sprite', self.custom.flame_sprite)
+			end
 		end,
 		fn_input_get_touch = function(self, act_id, act)
 			if act_id == hash('touch') and act.released then
