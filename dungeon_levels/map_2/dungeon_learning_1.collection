@@ -1,0 +1,200 @@
+name: "dungeon_learning_1"
+instances {
+  id: "map_level_2"
+  prototype: "/maps/map_level_2.go"
+  position {
+    x: 1.0
+    y: 33.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mage"
+  prototype: "/mage/mage.go"
+  children: "mage_cam"
+  position {
+    x: 184.0
+    y: 173.0
+    z: 0.02
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mage_cam"
+  prototype: "/mage/mage_cam.go"
+  children: "mouse_pointer"
+  position {
+    x: -152.0
+    y: -80.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "passage"
+  prototype: "/passage/passage.go"
+  position {
+    x: 185.0
+    y: 185.0
+    z: 0.01
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "passage"
+    properties {
+      id: "sprite"
+      value: "stairs"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destination"
+      value: "load_dungeon_entrance"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destiny_position"
+      value: "268.0, 265.0, 0.02"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "locked_passage"
+  prototype: "/locked_passage/locked_passage.go"
+  position {
+    x: 313.0
+    y: 121.0
+    z: 0.01
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "locked_passage"
+    properties {
+      id: "sprite"
+      value: "locked_door"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destination"
+      value: "load_dungeon_level_2"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destiny_position"
+      value: "104.0, 126.0, 0.03"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "key"
+  prototype: "/key/key.go"
+  position {
+    x: 177.0
+    y: 58.0
+    z: 0.01
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "hud"
+  prototype: "/hud/hud.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mouse_pointer"
+  prototype: "/mouse_pointer/mouse_pointer.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+scale_along_z: 0

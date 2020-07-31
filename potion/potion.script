@@ -1,0 +1,26 @@
+go.property('sprite', hash(''))
+require 'modules.positions'
+
+function init(self)
+	msg.post('#sprite', 'play_animation', {id = self.sprite})
+	print(self.sprite)
+end
+
+function on_message(self, message_id, message, sender)
+	if 
+		message_id == hash('trigger_response') 
+	and
+		message.other_group == hash('mage')
+	then
+		if self.sprite == hash('hp_potion') then
+			mage_life = mage_life + 1
+		elseif self.sprite == hash('hp_giga_potion') then
+			mage_life = mage_life + 2
+		elseif self.sprite == hash('mana_potion') then
+			mage_mana = mage_mana + 1
+		elseif self.sprite == hash('mana_giga_potion') then
+			mage_mana = mage_mana + 2
+		end
+		go.delete()
+	end
+end

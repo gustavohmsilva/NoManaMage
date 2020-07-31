@@ -5,6 +5,6 @@
 
 mage_spawn_position = vmath.vector3()
 mage_has_key = false
-mage_life = 2
-mage_mana = 2
+mage_life = 0
+mage_mana = 1
 

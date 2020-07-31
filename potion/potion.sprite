@@ -1,0 +1,4 @@
+tile_set: "/maps/map_source.tilesource"
+default_animation: "hp_potion"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

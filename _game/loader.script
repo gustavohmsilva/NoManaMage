@@ -1,59 +1,64 @@
-local function load_main_menu(self)
-	msg.post('level_selector#main_menu', 'load')
-	msg.post('level_selector#main_menu', 'enable')
+local currently_enabled = nil
+local unloader = function(enab)
+	if enab ~= nil then
+		msg.post(enab, 'unload')
+	end
 end
-
-local function unload_main_menu(self)
-	msg.post('level_selector#main_menu', 'unload')
-end
-
-local function unload_dungeon_entrance(self)
-	msg.post('level_selector#dungeon_entrance', 'unload')
-end
-
-local function unload_dungeon_learning_1(self)
-	msg.post('level_selector#dungeon_learning_1', 'unload')
-end
-
-local function unload_dungeon_learning_2(self)
-	msg.post('level_selector#dungeon_learning_2', 'unload')
-end
-
-local function load_dungeon_entrance(self)
-	msg.post('level_selector#dungeon_entrance', 'load')
-	msg.post('level_selector#dungeon_entrance', 'enable')
-end
-
-local function load_dungeon_learning_1(self)
-	msg.post('level_selector#dungeon_learning_1', 'load')
-	msg.post('level_selector#dungeon_learning_1', 'enable')
-	
-end
-
-local function load_dungeon_learning_2(self)
-	msg.post('level_selector#dungeon_learning_2', 'load')
-	msg.post('level_selector#dungeon_learning_2', 'enable')
+local load_and_enable = function(lev, enab)
+	unloader(enab)
+	msg.post(lev, 'load')
+	msg.post(lev, 'enable')
+	currently_enabled = lev
 end
 
 function init(self)
 	msg.post("@render:", "use_fixed_fit_projection", { near = -1, far = 1 })
 	msg.post('.', 'acquire_input_focus')
-	load_main_menu(self)
+	self.funcs = {
+		{
+			hash('load_start_menu'),
+			function()
+				local level = 'level_selector#main_menu'
+				load_and_enable(level, currently_enabled)
+			end
+		},{
+			hash('load_dungeon_entrance'),
+			function()
+				local level = 'level_selector#dungeon_entrance'
+				load_and_enable(level, currently_enabled)
+			end
+		},{
+			hash('load_dungeon_level_1'),
+			function()
+				local level = 'level_selector#dungeon_learning_1'
+				load_and_enable(level, currently_enabled)
+			end
+		},{
+			hash('load_dungeon_level_2'),
+			function()
+				local level = 'level_selector#dungeon_learning_2'
+				load_and_enable(level, currently_enabled)
+			end
+		},{
+			hash('load_dungeon_level_3'),
+			function()
+				local level = 'level_selector#dungeon_learning_3'
+				load_and_enable(level, currently_enabled)
+			end
+		},{
+			hash('load_dungeon_level_4'),
+			function()
+				local level = 'level_selector#dungeon_learning_4'
+				load_and_enable(level, currently_enabled)
+			end
+		}
+	}
+	self.funcs[1][2]()
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash('start_game') then
-		unload_main_menu(self)
-		load_dungeon_entrance(self)
-	elseif message_id == hash('go_dungeon_learning_1') then
-		unload_dungeon_entrance(self)
-		unload_dungeon_learning_2(self)
-		load_dungeon_learning_1(self)
-	elseif message_id == hash("go_dungeon_entrance") then
-		unload_dungeon_learning_1(self)
-		load_dungeon_entrance(self)
-	elseif message_id == hash('go_dungeon_learning_2') then
-		unload_dungeon_learning_1(self)
-		load_dungeon_learning_2(self)
+	for i, v in ipairs(self.funcs) do
+		print(message_id)
+		if v[1] == message_id then v[2]() end
 	end
 end
