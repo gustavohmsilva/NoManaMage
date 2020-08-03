@@ -34,6 +34,15 @@ animations {
   flip_vertical: 0
 }
 animations {
+  id: "skeleton"
+  start_tile: 12
+  end_tile: 12
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
   id: "teleport_pointer"
   start_tile: 8
   end_tile: 8

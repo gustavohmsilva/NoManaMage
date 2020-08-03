@@ -1,0 +1,4 @@
+tile_set: "/mage/mage_source.tilesource"
+default_animation: "skeleton"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

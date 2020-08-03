@@ -1,4 +1,4 @@
-name: "default"
+name: "dungeon_learning_3"
 instances {
   id: "map_level_4"
   prototype: "/maps/map_level_4.go"
@@ -45,8 +45,8 @@ instances {
   children: "mage_cam"
   position {
     x: 41.0
-    y: 67.0
-    z: 0.02
+    y: 76.0
+    z: 0.03
   }
   rotation {
     x: 0.0
@@ -182,6 +182,44 @@ instances {
       id: "sprite"
       value: "mana_potion"
       type: PROPERTY_TYPE_HASH
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "passage1"
+  prototype: "/passage/passage.go"
+  position {
+    x: 41.0
+    y: 87.0
+    z: 0.02
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "passage"
+    properties {
+      id: "sprite"
+      value: "unlocked_door"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destination"
+      value: "load_dungeon_level_2"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destiny_position"
+      value: "280.0, 79.0, 0.03"
+      type: PROPERTY_TYPE_VECTOR3
     }
   }
   scale3 {

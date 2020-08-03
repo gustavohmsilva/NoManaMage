@@ -1,1 +1,190 @@
-name: "default"
+name: "dungeon_learning_final"
+instances {
+  id: "map_level_5"
+  prototype: "/maps/map_level_5.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "passage"
+  prototype: "/passage/passage.go"
+  position {
+    x: 8.0
+    y: -74.0
+    z: 0.03
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "passage"
+    properties {
+      id: "sprite"
+      value: "unlocked_door"
+      type: PROPERTY_TYPE_HASH
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "passage1"
+  prototype: "/passage/passage.go"
+  position {
+    x: 8.0
+    y: 70.0
+    z: 0.01
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "passage"
+    properties {
+      id: "sprite"
+      value: "unlocked_door"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destination"
+      value: "load_dungeon_level_3"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destiny_position"
+      value: "41.0, -106.0, 0.02"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mage"
+  prototype: "/mage/mage.go"
+  children: "mage_cam"
+  position {
+    x: 8.0
+    y: 59.0
+    z: 0.02
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mage_cam"
+  prototype: "/mage/mage_cam.go"
+  children: "mouse_pointer"
+  position {
+    x: -152.0
+    y: -80.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mouse_pointer"
+  prototype: "/mouse_pointer/mouse_pointer.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "hud"
+  prototype: "/hud/hud.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "skeleton"
+  prototype: "/skeleton/skeleton.go"
+  position {
+    x: 8.0
+    y: -36.0
+    z: 0.02
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+scale_along_z: 0
