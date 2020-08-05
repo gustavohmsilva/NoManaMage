@@ -18,6 +18,7 @@ function init(self)
 		{
 			hash('load_start_menu'),
 			function()
+				previous_level = nil
 				local level = 'level_selector#main_menu'
 				load_and_enable(level, currently_enabled)
 			end
@@ -51,6 +52,12 @@ function init(self)
 				local level = 'level_selector#dungeon_learning_4'
 				load_and_enable(level, currently_enabled)
 			end
+		},{
+			hash('load_dungeon_maze_1'),
+			function()
+				local level = 'level_selector#dungeon_maze_1'
+				load_and_enable(level, currently_enabled)
+			end
 		}
 	}
 	self.funcs[1][2]()
@@ -58,7 +65,6 @@ end
 
 function on_message(self, message_id, message, sender)
 	for i, v in ipairs(self.funcs) do
-		print(message_id)
 		if v[1] == message_id then v[2]() end
 	end
 end

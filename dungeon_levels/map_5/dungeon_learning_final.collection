@@ -40,6 +40,11 @@ instances {
       value: "unlocked_door"
       type: PROPERTY_TYPE_HASH
     }
+    properties {
+      id: "destination"
+      value: "load_dungeon_maze_1"
+      type: PROPERTY_TYPE_HASH
+    }
   }
   scale3 {
     x: 1.0
@@ -99,6 +104,14 @@ instances {
     y: 0.0
     z: 0.0
     w: 1.0
+  }
+  component_properties {
+    id: "script"
+    properties {
+      id: "on_death"
+      value: "load_dungeon_level_3"
+      type: PROPERTY_TYPE_HASH
+    }
   }
   scale3 {
     x: 1.0
@@ -172,7 +185,7 @@ instances {
   prototype: "/skeleton/skeleton.go"
   position {
     x: 8.0
-    y: -36.0
+    y: -10.0
     z: 0.02
   }
   rotation {

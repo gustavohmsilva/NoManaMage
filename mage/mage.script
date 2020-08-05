@@ -1,5 +1,6 @@
 require 'modules.positions'
 require 'modules.smath'
+go.property('on_death', hash(''))
 
 function init(self)
 	print(msg.url())
@@ -8,6 +9,7 @@ function init(self)
 	msg.post('#teleport_zone', 'disable')
 	-- All personalized functions for the game object
 	self.custom = {
+		unique = true,
 		const_speed = 960,
 		val_move = vmath.vector3(),
 		fn_input_move = function(self, act_id, act)
@@ -46,7 +48,18 @@ function init(self)
 				end
 			end
 		end,
-
+		fn_message_on_death = function(self, msg_id)
+			if msg_id == hash('Killed')  and self.custom.unique then
+				if mage_life > 0 and self.custom.unique then
+					mage_life = mage_life - 1
+					self.custom.unique = false
+					msg.post('game:/level_selector#loader', self.on_death)
+				elseif mage_life <= 0 and self.custom.unique then
+					self.custom.unique = false
+					msg.post('game:/level_selector#loader', 'load_start_menu')
+				end
+			end
+		end,
 		fn_update_move = function(self, dt)
 			if self.custom.val_move ~= vmath.vector3() then
 				sound.play('#step_on_stone')
