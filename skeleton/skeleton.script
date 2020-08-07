@@ -1,53 +1,91 @@
 function init(self)
-	-- Add initialization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
-
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	msg.post('.', 'acquire_input_focus')
+	self.custom = {
+		mage_moved = false,
+		const_speed = 960,
+		fn_input_mage_moved = function(self, act_id, act)
+			if  (act_id == hash('move_up') 
+			or  act_id == hash('move_down')
+			or  act_id == hash('move_left')
+			or  act_id == hash('move_right'))
+			and act.released then
+				self.custom.mage_moved = true
+			end
+		end,
+		fn_message_attack_mage = function(self, msg_id, msg)
+			if     message_id == hash('trigger_response') 
+			and    message.own_group == hash('awareness') then
+				print('SKELETON NOTICED MAGE')
+			elseif message_id == hash('collision_response') 
+			and    message.own_group == hash('mobs') 
+			and    message.other_group == hash('mage') then
+				msg.post(message.other_id, 'Killed')
+			end 
+		end,
+		fn_message_wall_collision = function(self, msg_id, msg)
+			if msg_id == hash("contact_point_response") then
+				go.set_position(
+					go.get_position() + msg.normal * msg.distance
+				)
+			end
+		end,
+		fn_update_move = function(self, dt)
+			if self.custom.mage_moved then
+				sound.play('#skeleton_steps')
+				local curr_position = go.get_position()
+				local mage_position = go.get_world_position('mage')
+				local direction = vmath.vector3()
+				if curr_position.x > mage_position.x then
+					direction.x = -1
+				elseif curr_position.x < mage_position.x then
+					direction.x = 1
+				end
+				if curr_position.y > mage_position.y then
+					direction.y = -1
+				elseif curr_position.y < mage_position.y then
+					direction.y = 1
+				end
+				go.set_position(
+					curr_position + direction * self.custom.const_speed * dt
+				)
+			end
+		end,
+	}
+	self.deconstruct = {
+		fn_update_mage_moved = function(self)
+			if self.custom.mage_moved then
+				print('mage moved!')
+				self.custom.mage_moved = false
+			end
+		end,
+	}
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_update') then 
+			fn(self, dt) 
+		end
+	end
+	for fn_name, fn in pairs(self.deconstruct) do
+		if string.find(fn_name, 'fn_update') then 
+			fn(self, dt) 
+		end
+	end
 end
 
 function on_message(self, message_id, message, sender)
-	if 
-		message_id == hash('trigger_response') 
-	and
-		message.own_group == hash('awareness')
-	then
-		print('SKELETON NOTICED MAGE')
-	elseif 
-		message_id == hash('collision_response') 
-	and 
-		message.own_group == hash('mobs') 
-	and 
-		message.other_group == hash('mage') 
-	then
-		msg.post(message.other_id, 'Killed')
-	end 
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_message') then 
+			fn(self, message_id, message) 
+		end
+	end
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here. The game object this script is attached to
-	-- must have acquired input focus:
-	--
-	--    msg.post(".", "acquire_input_focus")
-	--
-	-- All mapped input bindings will be received. Mouse and touch input will
-	-- be received regardless of where on the screen it happened.
-	-- Learn more: https://defold.com/manuals/input/
-	-- Remove this function if not needed
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_input') then 
+			fn(self, action_id, action) 
+		end
+	end
 end

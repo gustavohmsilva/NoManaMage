@@ -28,6 +28,21 @@ components {
     w: 1.0
   }
 }
+components {
+  id: "skeleton_steps"
+  component: "/skeleton/skeleton_steps.sound"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+}
 embedded_components {
   id: "collisionobject"
   type: "collisionobject"
@@ -38,6 +53,7 @@ embedded_components {
   "restitution: 0.5\n"
   "group: \"mobs\"\n"
   "mask: \"mage\"\n"
+  "mask: \"walls\"\n"
   "embedded_collision_shape {\n"
   "  shapes {\n"
   "    shape_type: TYPE_BOX\n"
@@ -56,7 +72,7 @@ embedded_components {
   "    count: 3\n"
   "  }\n"
   "  data: 7.912\n"
-  "  data: 7.8945\n"
+  "  data: 13.8155\n"
   "  data: 10.0\n"
   "}\n"
   "linear_damping: 0.0\n"
