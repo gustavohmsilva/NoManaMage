@@ -27,4 +27,5 @@ max_tile_count = 9999999
 
 [physics]
 gravity_y = 0.0
+debug = 0
 

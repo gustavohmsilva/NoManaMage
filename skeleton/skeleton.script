@@ -12,18 +12,19 @@ function init(self)
 				self.custom.mage_moved = true
 			end
 		end,
-		fn_message_attack_mage = function(self, msg_id, msg)
-			if     message_id == hash('trigger_response') 
-			and    message.own_group == hash('awareness') then
+		fn_message_attack_mage = function(self, msg_id, messg)
+			if     msg_id == hash('trigger_response') 
+			and    messg.own_group == hash('awareness') then
 				print('SKELETON NOTICED MAGE')
-			elseif message_id == hash('collision_response') 
-			and    message.own_group == hash('mobs') 
-			and    message.other_group == hash('mage') then
-				msg.post(message.other_id, 'Killed')
-			end 
+			elseif msg_id == hash('contact_point_response') 
+			and    messg.own_group == hash('mobs') 
+			and    messg.other_group == hash('mage') then
+				msg.post(messg.other_id, 'Killed')
+			end
 		end,
 		fn_message_wall_collision = function(self, msg_id, msg)
-			if msg_id == hash("contact_point_response") then
+			if  msg_id == hash("contact_point_response") 
+			and msg.other_group ~= hash('mage') then
 				go.set_position(
 					go.get_position() + msg.normal * msg.distance
 				)

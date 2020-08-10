@@ -1,6 +1,5 @@
 
-ÝØ
-#ifdef GL_ES
+Ü×#ifdef GL_ES
 precision mediump float;
 #endif
 #ifndef GL_ES
