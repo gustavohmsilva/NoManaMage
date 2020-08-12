@@ -1,9 +1,11 @@
 local currently_enabled = nil
+
 local unloader = function(enab)
 	if enab ~= nil then
 		msg.post(enab, 'unload')
 	end
 end
+
 local load_and_enable = function(lev, enab)
 	unloader(enab)
 	msg.post(lev, 'load')

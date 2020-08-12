@@ -1,6 +1,13 @@
 go.property('current_collection', hash(''))
 
+local function say(phrase)
+	return function()
+		label.set_text('#label', phrase) 
+	end
+end
+
 function init(self)
+	self.val_one_time_trigger = false
 	self.dialogs_entrance = {
 		'OH DEAR MAGE',
 		'YOU ARE SO LOST!',
@@ -9,50 +16,34 @@ function init(self)
 		'I HOPE YOU HAVE ENOUGH MANA...',
 		''
 	}
-
 	self.dialogs_level_2 = {
-		'IT SEEMS YOU ARE DONE FOR',
+		'IT SEEMS THAT YOU ARE DONE FOR',
 		'UNLESS YOU KNOW HOW TO TELEPORT',
 		'IT WOULD BE CONVENIENT IF YOU COUD...',
 		'IMAGINE!\nJUST PRESSING THE SPACE BAR',
 		'TO BE ABLE TO TRAVEL AROUND...',
 		''
 	}
-
-	self.custom = {
-		val_one_time_trigger = false,
-		fn_message_aware_of_mage = function(self, msg_id, msg)
-			if 
-				msg_id == hash('collision_response') and 
-				msg.own_group == hash('awareness') and
-				not self.val_one_time_trigger
-			then
-				self.val_one_time_trigger = true
-				if self.current_collection == hash('dungeon_learning_2') then
-					self.dialogs = self.dialogs_level_2
-				else
-					self.dialogs = self.dialogs_entrance
-				end
-				for index, phrase in ipairs(self.dialogs) do
-					if index == 1 then
-						label.set_text('#label', phrase)
-					else
-						timer.delay(
-							index * 2, 
-							false,
-							(function() label.set_text('#label', phrase) end)
-						)
-					end
-				end
-			end
-		end
-	}
 end
 
 function on_message(self, message_id, message, sender)
-	for fn_name, fn in pairs(self.custom) do
-		if string.find(fn_name, 'fn_message') then
-			fn(self, message_id, message)
+	if 
+		message_id == hash('collision_response') and 
+		message.own_group == hash('awareness') and
+		not self.val_one_time_trigger
+	then
+		self.val_one_time_trigger = true
+		if self.current_collection == hash('dungeon_learning_2') then
+			self.dialogs = self.dialogs_level_2
+		else
+			self.dialogs = self.dialogs_entrance
+		end
+		for index, phrase in ipairs(self.dialogs) do
+			if index == 1 then
+				label.set_text('#label', phrase)
+			else
+				timer.delay(index * 2, false, say(phrase))
+			end
 		end
 	end
 end
