@@ -405,8 +405,8 @@ nodes {
     w: 1.0
   }
   scale {
-    x: 0.092
-    y: 0.111
+    x: 0.07
+    y: 0.07
     z: 1.0
     w: 1.0
   }
@@ -417,9 +417,9 @@ nodes {
     w: 1.0
   }
   color {
-    x: 0.6
-    y: 0.0
-    z: 0.0
+    x: 1.0
+    y: 1.0
+    z: 1.0
     w: 1.0
   }
   type: TYPE_TEXT
@@ -447,8 +447,8 @@ nodes {
   layer: "items_layer"
   inherit_alpha: true
   alpha: 1.0
-  outline_alpha: 1.0
-  shadow_alpha: 1.0
+  outline_alpha: 0.0
+  shadow_alpha: 0.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0

@@ -1,9 +1,9 @@
 require 'modules.positions'
 require 'modules.smath'
+require 'modules.hud_cache'
 go.property('on_death', hash(''))
 
 function init(self)
-	print(msg.url())
 	msg.post('.', 'acquire_input_focus')
 	msg.post('/mage_cam', 'acquire_camera_focus')
 	msg.post('#teleport_zone', 'disable')
@@ -54,6 +54,7 @@ function init(self)
 					mage_life = mage_life - 1
 					self.custom.unique = false
 					msg.post('game:/level_selector#loader', self.on_death)
+					table.insert(messages, 1, 'With your last breath, you took your life potion...')
 				elseif mage_life <= 0 and self.custom.unique then
 					self.custom.unique = false
 					msg.post('game:/level_selector#loader', 'load_start_menu')

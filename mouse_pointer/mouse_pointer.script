@@ -1,7 +1,6 @@
 require 'modules.smath'
 
 function init(self)
-	print(msg.url())
 	msg.post('.', 'acquire_input_focus')
 	msg.post('#sprite', 'disable')
 	self.custom = {

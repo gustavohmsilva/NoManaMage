@@ -1,27 +1,35 @@
 require 'modules.positions'
+require 'modules.hud_cache'
 
-local function say(phrase, nd)
-	gui.set_text(
-		user_feedback_text,
-		phrase
-	)
-	timer.delay(5, false, stop_speaking(nd))
-end
-
-local function stop_speaking(nd)
-	return function()
-		gui.set_text(nd, '')
-	end
-end
 
 function init(self)
 	self.mana_potion_image = gui.get_node('mana_potion_image')
 	self.hp_potion_image = gui.get_node('hp_potion_image')
 	self.user_feedback_text = gui.get_node('user_feedback_text')
 	self.key_image = gui.get_node('key_image')
+	
+	self.say = function()
+		if  gui.get_text(self.user_feedback_text) ~= messages[1] 
+		and messages[1] ~= nil
+		then
+			gui.set_text(
+				self.user_feedback_text,
+				messages[1]
+			)
+			timer.delay(5, false, self.stop_speaking())
+			table.remove(messages, 1)
+		end
+	end
+
+	self.stop_speaking = function()
+		return function()
+			gui.set_text(self.user_feedback_text, '')
+		end
+	end
 end
 
 function update(self, dt)
+	self.say()
 	if mage_life > 1 then 
 		gui.play_flipbook(self.hp_potion_image, 'hp_giga_potion')
 	else 
@@ -35,18 +43,4 @@ function update(self, dt)
 	gui.set_enabled(self.key_image, mage_has_key)
 	gui.set_enabled(self.hp_potion_image, mage_life > 0)
 	gui.set_enabled(self.mana_potion_image, mage_mana > 0)
-end
-
-function on_message(self, message_id, message)
-	if message_id == hash('user_almost_died') then
-		say(
-			'You have almost died, luckly you took a life potion and ran away.'
-			self.user_feedback_text
-		)
-	elseif message_id == hash('skeleton_noticed_user') then
-		say(
-			'Oh no, you\'ve been noticed by a Ugly Skeleton'
-			self.user_feedback_text
-		)
-	end
 end
