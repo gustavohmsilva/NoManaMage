@@ -16,6 +16,7 @@ function init(self)
 				self.user_feedback_text,
 				messages[1]
 			)
+			sound.play('#hud_notification')
 			timer.delay(5, false, self.stop_speaking())
 			table.remove(messages, 1)
 		end

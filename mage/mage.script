@@ -12,6 +12,7 @@ function init(self)
 		unique = true,
 		const_speed = 960,
 		val_move = vmath.vector3(),
+		active_teleportation = false,
 		fn_input_move = function(self, act_id, act)
 			if act_id == hash('move_up') and act.released then
 				self.custom.val_move.y = 1
@@ -27,8 +28,10 @@ function init(self)
 			if act_id == hash('teleport') then
 				if act.pressed then
 					msg.post('#teleport_zone', 'enable')
+					self.custom.active_teleportation = true
 				elseif act.released then
 					msg.post('#teleport_zone', 'disable')
+					self.custom.active_teleportation = false
 				end
 			end	
 		end,
@@ -36,16 +39,20 @@ function init(self)
 			if msg_id == hash('teleport_trigger') then
 				local mage_position = go.get_world_position('mage')
 				local teleport_destination = go.get_world_position('mouse_pointer')
-				if 
-					smath.distance_from(mage_position, teleport_destination) < 64 
-				and
-	 				mage_mana > 0 
+				if     smath.distance_from(mage_position, teleport_destination) < 66 
+				and    mage_mana > 0
+				and    self.custom.active_teleportation
 				then
 					go.set_position(teleport_destination)
 					mage_mana = mage_mana - 1
-				else
-					print('impossible to teleport')	
+					table.insert(messages, 1, 'You just teleported! Hope you did it well...')
+				elseif smath.distance_from(mage_position, teleport_destination) >= 66 
+				and    mage_mana > 0
+				and    self.custom.active_teleportation
+				then
+					table.insert(messages, 1, 'Mate! You can\'t go that far...')
 				end
+
 			end
 		end,
 		fn_message_on_death = function(self, msg_id)
@@ -54,7 +61,7 @@ function init(self)
 					mage_life = mage_life - 1
 					self.custom.unique = false
 					msg.post('game:/level_selector#loader', self.on_death)
-					table.insert(messages, 1, 'With your last breath, you took your life potion...')
+					table.insert(messages, 1, 'Right before Dying, you took a life potion!')
 				elseif mage_life <= 0 and self.custom.unique then
 					self.custom.unique = false
 					msg.post('game:/level_selector#loader', 'load_start_menu')

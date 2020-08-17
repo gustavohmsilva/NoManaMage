@@ -1,0 +1,7 @@
+function init(self)
+	sound.play('#dungeon_soundtrack')
+end
+
+function final(self)
+	sound.stop('#dungeon_soundtrack')
+end

@@ -1,4 +1,5 @@
 require 'modules.positions'
+require 'modules.hud_cache'
 
 function init(self)
 	-- Add initialization code here
@@ -25,6 +26,7 @@ function on_message(self, message_id, message, sender)
 		message.other_group == hash('mage')
 	then
 		mage_has_key = true
+		table.insert(messages, 1, 'Hum... A key! I wonder what it open!')
 		go.delete()
 	end
 end
