@@ -1,5 +1,6 @@
 
-ÚÕ#ifndef GL_ES
+ÛÖ
+#ifndef GL_ES
 #define lowp
 #define mediump
 #define highp

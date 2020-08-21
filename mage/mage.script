@@ -64,7 +64,7 @@ function init(self)
 					table.insert(messages, 1, 'Right before Dying, you took a life potion!')
 				elseif mage_life <= 0 and self.custom.unique then
 					self.custom.unique = false
-					msg.post('game:/level_selector#loader', 'load_start_menu')
+					msg.post('game:/level_selector#loader', 'load_game_over')
 				end
 			end
 		end,

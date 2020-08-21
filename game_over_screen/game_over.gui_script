@@ -1,0 +1,55 @@
+local function call_main_menu()
+	return function()
+		msg.post('game:/level_selector#loader', 'load_start_menu')
+	end
+end
+
+function init(self)
+	self.you_died_text = gui.get_node('you_died_text')
+	self.text_color = gui.get_color(self.you_died_text)
+	self.text_color.w = 0.0
+	gui.set_color(self.you_died_text, self.text_color)
+	sound.play(
+		'#game_over_music', 
+		{delay = 1, gain = 1, pan = 1}, 
+		call_main_menu()
+	)
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	self.text_color = gui.get_color(self.you_died_text)
+	if self.text_color.w <= 1.0 then
+		self.text_color.w = self.text_color.w + 0.2 * dt
+		gui.set_color(self.you_died_text, self.text_color)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Learn more: https://defold.com/manuals/message-passing/
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here. The game object this script is attached to
+	-- must have acquired input focus:
+	--
+	--    msg.post(".", "acquire_input_focus")
+	--
+	-- All mapped input bindings will be received. Mouse and touch input will
+	-- be received regardless of where on the screen it happened.
+	-- Learn more: https://defold.com/manuals/input/
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Learn more: https://defold.com/manuals/hot-reload/
+	-- Remove this function if not needed
+end

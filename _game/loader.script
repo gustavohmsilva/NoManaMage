@@ -60,6 +60,12 @@ function init(self)
 				local level = 'level_selector#dungeon_maze_1'
 				load_and_enable(level, currently_enabled)
 			end
+		},{
+			hash('load_game_over'),
+			function()
+				local level = 'level_selector#game_over'
+				load_and_enable(level, currently_enabled)
+			end
 		}
 	}
 	self.funcs[1][2]()
