@@ -63,7 +63,7 @@ instances {
 }
 instances {
   id: "dungeon_guide"
-  prototype: "/dungeon_guide/dungeon_guide.go"
+  prototype: "/mobs/dungeon_guide/dungeon_guide.go"
   position {
     x: 93.0
     y: 102.0
@@ -83,7 +83,7 @@ instances {
 }
 instances {
   id: "passage"
-  prototype: "/passage/passage.go"
+  prototype: "/passages/passage/passage.go"
   position {
     x: 269.0
     y: 281.0
@@ -121,7 +121,7 @@ instances {
 }
 instances {
   id: "hud"
-  prototype: "/hud/hud.go"
+  prototype: "/gui/hud/hud.go"
   position {
     x: 0.0
     y: 0.0
@@ -141,7 +141,7 @@ instances {
 }
 instances {
   id: "mouse_pointer"
-  prototype: "/mouse_pointer/mouse_pointer.go"
+  prototype: "/gui/mouse_pointer/mouse_pointer.go"
   position {
     x: 0.0
     y: 0.0

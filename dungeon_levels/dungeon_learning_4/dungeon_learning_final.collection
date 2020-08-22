@@ -21,7 +21,7 @@ instances {
 }
 instances {
   id: "passage"
-  prototype: "/passage/passage.go"
+  prototype: "/passages/passage/passage.go"
   position {
     x: 8.0
     y: -74.0
@@ -54,7 +54,7 @@ instances {
 }
 instances {
   id: "passage1"
-  prototype: "/passage/passage.go"
+  prototype: "/passages/passage/passage.go"
   position {
     x: 8.0
     y: 70.0
@@ -142,7 +142,7 @@ instances {
 }
 instances {
   id: "mouse_pointer"
-  prototype: "/mouse_pointer/mouse_pointer.go"
+  prototype: "/gui/mouse_pointer/mouse_pointer.go"
   position {
     x: 0.0
     y: 0.0
@@ -162,7 +162,7 @@ instances {
 }
 instances {
   id: "hud"
-  prototype: "/hud/hud.go"
+  prototype: "/gui/hud/hud.go"
   position {
     x: 0.0
     y: 0.0
@@ -182,7 +182,7 @@ instances {
 }
 instances {
   id: "skeleton"
-  prototype: "/skeleton/skeleton.go"
+  prototype: "/mobs/skeleton/skeleton.go"
   position {
     x: 8.0
     y: -10.0

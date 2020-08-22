@@ -11,7 +11,7 @@ target_sdk_version = 29
 version_code = 1
 
 [bootstrap]
-main_collection = /_game/game.collectionc
+main_collection = /gui/_game/game.collectionc
 render = /builtins/render/default.renderc
 
 [collection]

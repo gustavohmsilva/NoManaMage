@@ -1,4 +1,0 @@
-tile_set: "/mouse_pointer/mouse_pointer.tilesource"
-default_animation: "flame"
-material: "/builtins/materials/sprite.material"
-blend_mode: BLEND_MODE_ALPHA

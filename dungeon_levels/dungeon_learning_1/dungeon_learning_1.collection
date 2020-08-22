@@ -63,7 +63,7 @@ instances {
 }
 instances {
   id: "passage"
-  prototype: "/passage/passage.go"
+  prototype: "/passages/passage/passage.go"
   position {
     x: 185.0
     y: 185.0
@@ -101,7 +101,7 @@ instances {
 }
 instances {
   id: "locked_passage"
-  prototype: "/locked_passage/locked_passage.go"
+  prototype: "/passages/locked_passage/locked_passage.go"
   position {
     x: 313.0
     y: 121.0
@@ -139,7 +139,7 @@ instances {
 }
 instances {
   id: "key"
-  prototype: "/key/key.go"
+  prototype: "/itens/key/key.go"
   position {
     x: 177.0
     y: 58.0
@@ -159,7 +159,7 @@ instances {
 }
 instances {
   id: "hud"
-  prototype: "/hud/hud.go"
+  prototype: "/gui/hud/hud.go"
   position {
     x: 0.0
     y: 0.0
@@ -179,7 +179,7 @@ instances {
 }
 instances {
   id: "mouse_pointer"
-  prototype: "/mouse_pointer/mouse_pointer.go"
+  prototype: "/gui/mouse_pointer/mouse_pointer.go"
   position {
     x: 0.0
     y: 0.0

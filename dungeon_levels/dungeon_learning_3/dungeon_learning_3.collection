@@ -21,7 +21,7 @@ instances {
 }
 instances {
   id: "hud"
-  prototype: "/hud/hud.go"
+  prototype: "/gui/hud/hud.go"
   position {
     x: 0.0
     y: 0.0
@@ -83,7 +83,7 @@ instances {
 }
 instances {
   id: "mouse_pointer"
-  prototype: "/mouse_pointer/mouse_pointer.go"
+  prototype: "/gui/mouse_pointer/mouse_pointer.go"
   position {
     x: 0.0
     y: 0.0
@@ -103,7 +103,7 @@ instances {
 }
 instances {
   id: "passage"
-  prototype: "/passage/passage.go"
+  prototype: "/passages/passage/passage.go"
   position {
     x: 41.0
     y: -121.0
@@ -136,7 +136,7 @@ instances {
 }
 instances {
   id: "hp_potion"
-  prototype: "/potion/potion.go"
+  prototype: "/itens/potion/potion.go"
   position {
     x: 0.0
     y: 0.0
@@ -164,7 +164,7 @@ instances {
 }
 instances {
   id: "mana_potion"
-  prototype: "/potion/potion.go"
+  prototype: "/itens/potion/potion.go"
   position {
     x: 79.0
     y: -1.0
@@ -192,7 +192,7 @@ instances {
 }
 instances {
   id: "passage1"
-  prototype: "/passage/passage.go"
+  prototype: "/passages/passage/passage.go"
   position {
     x: 41.0
     y: 87.0
