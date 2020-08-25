@@ -1,6 +1,6 @@
 components {
   id: "locked_passage"
-  component: "/passages/locked_passage/locked_passage.script"
+  component: "/passages/locked_passage/components/locked_passage.script"
   position {
     x: 0.0
     y: 0.0
@@ -16,7 +16,7 @@ components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/maps/map_source.tilesource\"\n"
+  data: "tile_set: \"/maps/shared_components/map_source.tilesource\"\n"
   "default_animation: \"locked_door\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"
@@ -120,7 +120,7 @@ embedded_components {
   "blend_mode: BLEND_MODE_ALPHA\n"
   "line_break: false\n"
   "text: \"\"\n"
-  "font: \"/mobs/dungeon_guide/dialog.font\"\n"
+  "font: \"/gui/fonts/dialog.font\"\n"
   "material: \"/builtins/fonts/label.material\"\n"
   ""
   position {

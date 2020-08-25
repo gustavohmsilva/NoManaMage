@@ -1,6 +1,6 @@
 components {
   id: "map_level_5"
-  component: "/maps/tilemaps/map_level_5.tilemap"
+  component: "/maps/shared_components/tilemaps/map_level_5.tilemap"
   position {
     x: 80.0
     y: 14.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "maps"
-  component: "/maps/maps.script"
+  component: "/maps/shared_components/maps.script"
   position {
     x: 0.0
     y: 0.0
@@ -30,7 +30,7 @@ components {
 }
 components {
   id: "dungeon_soundtrack"
-  component: "/maps/dungeon_soundtrack.sound"
+  component: "/maps/shared_components/dungeon_soundtrack.sound"
   position {
     x: 0.0
     y: 0.0

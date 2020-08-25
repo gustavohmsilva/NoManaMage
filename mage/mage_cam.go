@@ -1,6 +1,6 @@
 components {
   id: "mage_cam"
-  component: "/mage/mage_cam.camera"
+  component: "/mage/components/mage_cam.camera"
   position {
     x: 0.0
     y: 0.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "mage_cam1"
-  component: "/mage/mage_cam.script"
+  component: "/mage/components/mage_cam.script"
   position {
     x: 0.0
     y: 0.0

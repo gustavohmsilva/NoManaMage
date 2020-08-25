@@ -1,6 +1,6 @@
 components {
   id: "mage_sprite"
-  component: "/mage/mage_sprite.sprite"
+  component: "/mage/components/mage_sprite.sprite"
   position {
     x: 0.0
     y: 0.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "script"
-  component: "/mage/mage.script"
+  component: "/mage/components/mage.script"
   position {
     x: 0.0
     y: 0.0
@@ -106,7 +106,7 @@ embedded_components {
 embedded_components {
   id: "teleport_zone"
   type: "sprite"
-  data: "tile_set: \"/mage/teleport_area.tilesource\"\n"
+  data: "tile_set: \"/mage/components/teleport_area.tilesource\"\n"
   "default_animation: \"active_teleport\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"

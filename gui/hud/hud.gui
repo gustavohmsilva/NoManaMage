@@ -1,11 +1,11 @@
 script: "/gui/hud/hud.gui_script"
 fonts {
   name: "dialog"
-  font: "/mobs/dungeon_guide/dialog.font"
+  font: "/gui/fonts/dialog.font"
 }
 textures {
   name: "map_source"
-  texture: "/maps/map_source.tilesource"
+  texture: "/maps/shared_components/map_source.tilesource"
 }
 background_color {
   x: 0.0

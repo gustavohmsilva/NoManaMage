@@ -1,7 +1,7 @@
 script: "/gui/main_menu/main_menu.gui_script"
 fonts {
   name: "dialog"
-  font: "/mobs/dungeon_guide/dialog.font"
+  font: "/gui/fonts/dialog.font"
 }
 textures {
   name: "main_menu_source"

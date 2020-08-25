@@ -57,7 +57,6 @@ function init(self)
 	self.deconstruct = {
 		fn_update_mage_moved = function(self)
 			if self.custom.mage_moved then
-				print('mage moved!')
 				self.custom.mage_moved = false
 			end
 		end,

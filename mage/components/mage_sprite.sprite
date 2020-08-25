@@ -1,4 +1,4 @@
-tile_set: "/mage/mage.atlas"
+tile_set: "/mage/components/mage.atlas"
 default_animation: "idle"
 material: "/builtins/materials/sprite.material"
 blend_mode: BLEND_MODE_ALPHA

@@ -1,4 +1,4 @@
-font: "/mobs/dungeon_guide/ttfs/8bitOperatorPlusSC-Bold.ttf"
+font: "/gui/fonts/ttfs/8bitOperatorPlusSC-Bold.ttf"
 material: "/builtins/fonts/font.material"
 size: 128
 antialias: 1

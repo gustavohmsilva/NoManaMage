@@ -1,6 +1,6 @@
 components {
   id: "passage"
-  component: "/passages/passage/passage.script"
+  component: "/passages/passage/components/passage.script"
   position {
     x: 0.0
     y: 0.0
@@ -16,7 +16,7 @@ components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/maps/map_source.tilesource\"\n"
+  data: "tile_set: \"/maps/shared_components/map_source.tilesource\"\n"
   "default_animation: \"unlocked_door\"\n"
   "material: \"/builtins/materials/sprite.material\"\n"
   "blend_mode: BLEND_MODE_ALPHA\n"

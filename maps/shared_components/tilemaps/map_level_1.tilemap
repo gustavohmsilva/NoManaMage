@@ -1,4 +1,4 @@
-tile_set: "/maps/map_source.tilesource"
+tile_set: "/maps/shared_components/map_source.tilesource"
 layers {
   id: "groud"
   z: 0.0

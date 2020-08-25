@@ -1,6 +1,6 @@
 components {
   id: "mal_level_3"
-  component: "/maps/tilemaps/map_level_3.tilemap"
+  component: "/maps/shared_components/tilemaps/map_level_3.tilemap"
   position {
     x: 0.0
     y: 0.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "maps"
-  component: "/maps/maps.script"
+  component: "/maps/shared_components/maps.script"
   position {
     x: 0.0
     y: 0.0
@@ -30,7 +30,7 @@ components {
 }
 components {
   id: "dungeon_soundtrack"
-  component: "/maps/dungeon_soundtrack.sound"
+  component: "/maps/shared_components/dungeon_soundtrack.sound"
   position {
     x: 0.0
     y: 0.0
