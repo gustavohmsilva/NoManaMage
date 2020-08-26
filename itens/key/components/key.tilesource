@@ -1,4 +1,4 @@
-image: "/maps/images/Dungeon_Tileset.png"
+image: "/itens/key/images/keys.png"
 tile_width: 16
 tile_height: 16
 tile_margin: 0
@@ -7,9 +7,18 @@ collision: ""
 material_tag: "tile"
 collision_groups: "default"
 animations {
-  id: "hud_background"
-  start_tile: 70
-  end_tile: 70
+  id: "golden_key"
+  start_tile: 2
+  end_tile: 2
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "key"
+  start_tile: 1
+  end_tile: 1
   playback: PLAYBACK_NONE
   fps: 1
   flip_horizontal: 0

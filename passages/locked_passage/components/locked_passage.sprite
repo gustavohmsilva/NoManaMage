@@ -1,0 +1,4 @@
+tile_set: "/passages/locked_passage/components/locked_passage.tilesource"
+default_animation: "locked_door"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

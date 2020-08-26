@@ -7,14 +7,14 @@ collision: ""
 material_tag: "tile"
 collision_groups: "default"
 animations {
-  id: "hud_background"
-  start_tile: 70
-  end_tile: 70
+  id: "hud"
+  start_tile: 58
+  end_tile: 58
   playback: PLAYBACK_NONE
   fps: 1
   flip_horizontal: 0
   flip_vertical: 0
 }
-extrude_borders: 0
+extrude_borders: 2
 inner_padding: 0
 sprite_trim_mode: SPRITE_TRIM_MODE_OFF

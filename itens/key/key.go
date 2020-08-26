@@ -1,6 +1,6 @@
 components {
   id: "key"
-  component: "/itens/key/key.script"
+  component: "/itens/key/components/key.script"
   position {
     x: 0.0
     y: 0.0
@@ -13,14 +13,9 @@ components {
     w: 1.0
   }
 }
-embedded_components {
+components {
   id: "sprite"
-  type: "sprite"
-  data: "tile_set: \"/maps/shared_components/map_source.tilesource\"\n"
-  "default_animation: \"key\"\n"
-  "material: \"/builtins/materials/sprite.material\"\n"
-  "blend_mode: BLEND_MODE_ALPHA\n"
-  ""
+  component: "/itens/key/components/key.sprite"
   position {
     x: 0.0
     y: 0.0

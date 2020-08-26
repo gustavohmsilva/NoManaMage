@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/mobs/devil/componentes/devil.script"
+  component: "/mobs/devil/components/devil.script"
   position {
     x: 0.0
     y: 0.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "sound"
-  component: "/mobs/devil/componentes/devil.sound"
+  component: "/mobs/devil/components/devil.sound"
   position {
     x: 0.0
     y: 0.0
@@ -30,7 +30,7 @@ components {
 }
 components {
   id: "sprite"
-  component: "/mobs/devil/componentes/devil.sprite"
+  component: "/mobs/devil/components/devil.sprite"
   position {
     x: 0.0
     y: 0.0

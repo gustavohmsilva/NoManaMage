@@ -65,7 +65,7 @@ instances {
     id: "passage"
     properties {
       id: "sprite"
-      value: "unlocked_door"
+      value: "door"
       type: PROPERTY_TYPE_HASH
     }
     properties {
@@ -185,7 +185,7 @@ instances {
     id: "passage"
     properties {
       id: "sprite"
-      value: "unlocked_door"
+      value: "door"
       type: PROPERTY_TYPE_HASH
     }
     properties {

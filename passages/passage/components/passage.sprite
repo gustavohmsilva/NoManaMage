@@ -1,0 +1,4 @@
+tile_set: "/passages/passage/components/passage.tilesource"
+default_animation: "door"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA

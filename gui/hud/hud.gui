@@ -4,8 +4,16 @@ fonts {
   font: "/gui/fonts/dialog.font"
 }
 textures {
-  name: "map_source"
-  texture: "/maps/shared_components/map_source.tilesource"
+  name: "potion"
+  texture: "/itens/potion/components/potion.tilesource"
+}
+textures {
+  name: "map"
+  texture: "/maps/shared_components/map.tilesource"
+}
+textures {
+  name: "key"
+  texture: "/itens/key/components/key.tilesource"
 }
 background_color {
   x: 0.0
@@ -46,7 +54,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "map_source/hud_background"
+  texture: "map/hud"
   id: "bg_image"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -100,7 +108,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "map_source/key"
+  texture: "key/key"
   id: "key_image"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -154,7 +162,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "map_source/hp_giga_potion"
+  texture: "potion/hp_potion"
   id: "hp_potion_image"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -208,7 +216,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "map_source/mana_giga_potion"
+  texture: "potion/mana_potion"
   id: "mana_potion_image"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -262,7 +270,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "map_source/hud_background"
+  texture: "map/hud"
   id: "bg_image1"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -316,7 +324,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "map_source/hud_background"
+  texture: "map/hud"
   id: "bg_image2"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
@@ -370,7 +378,7 @@ nodes {
   }
   type: TYPE_BOX
   blend_mode: BLEND_MODE_ALPHA
-  texture: "map_source/hud_background"
+  texture: "map/hud"
   id: "bg_user_feedback"
   xanchor: XANCHOR_NONE
   yanchor: YANCHOR_NONE
