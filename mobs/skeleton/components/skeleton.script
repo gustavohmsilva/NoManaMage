@@ -17,11 +17,18 @@ function init(self)
 		fn_message_attack_mage = function(self, msg_id, messg)
 			if     msg_id == hash('trigger_response') 
 			and    messg.own_group == hash('awareness') then
-				table.insert(messages, 1, 'Oh no, you\'ve been noticed by a Ugly Skeleton')
+				table.insert(
+					messages, 
+					1, 
+					{
+						'Oh no, you\'ve been noticed by a Ugly Skeleton',
+						hash('skeleton_message')
+					}
+				)
 			elseif msg_id == hash('contact_point_response') 
 			and    messg.own_group == hash('mobs') 
 			and    messg.other_group == hash('mage') then
-				msg.post(messg.other_id, 'Killed')
+				msg.post(messg.other_id, 'Killed', {icon = hash('skeleton_message')})
 			end
 		end,
 		fn_message_wall_collision = function(self, msg_id, msg)

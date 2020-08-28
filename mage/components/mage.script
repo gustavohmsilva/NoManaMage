@@ -45,23 +45,47 @@ function init(self)
 				then
 					go.set_position(teleport_destination)
 					mage_mana = mage_mana - 1
-					table.insert(messages, 1, 'You just teleported! Hope you did it well...')
+					table.insert(
+						messages, 
+						1, 
+						{
+							'You just teleported! Hope you did it well...',
+							hash('general_message')
+						}
+					)
 				elseif smath.distance_from(mage_position, teleport_destination) >= 66 
 				and    mage_mana > 0
 				and    self.custom.active_teleportation
 				then
-					table.insert(messages, 1, 'Mate! You can\'t go that far...')
+					table.insert(
+						messages, 
+						1, 
+						{
+							'Mate! You can\'t go that far...',
+							hash('general_message')
+						}
+					)
 				end
 
 			end
 		end,
-		fn_message_on_death = function(self, msg_id)
+		fn_message_on_death = function(self, msg_id, message)
+			for i, v in pairs(message) do
+				print(i,v)
+			end
 			if msg_id == hash('Killed')  and self.custom.unique then
 				if mage_life > 0 and self.custom.unique then
 					mage_life = mage_life - 1
 					self.custom.unique = false
 					msg.post('game:/level_selector#loader', self.on_death)
-					table.insert(messages, 1, 'Right before Dying, you took a life potion!')
+					table.insert(
+						messages, 
+						1, 
+						{
+							'Right before Dying, you took a life potion!',
+							message.icon
+						}
+					)
 				elseif mage_life <= 0 and self.custom.unique then
 					self.custom.unique = false
 					msg.post('game:/level_selector#loader', 'load_game_over')

@@ -1,11 +1,11 @@
-script: "/gui/hud/hud.gui_script"
+script: "/gui/hud/components/hud.gui_script"
 fonts {
   name: "dialog"
   font: "/gui/fonts/dialog.font"
 }
 textures {
   name: "potion"
-  texture: "/itens/potion/components/potion.tilesource"
+  texture: "/items/potion/components/potion.tilesource"
 }
 textures {
   name: "map"
@@ -13,7 +13,11 @@ textures {
 }
 textures {
   name: "key"
-  texture: "/itens/key/components/key.tilesource"
+  texture: "/items/key/components/key.tilesource"
+}
+textures {
+  name: "hud"
+  texture: "/gui/hud/components/hud.atlas"
 }
 background_color {
   x: 0.0
@@ -401,7 +405,7 @@ nodes {
 }
 nodes {
   position {
-    x: 61.0
+    x: 77.0
     y: 191.0
     z: 0.0
     w: 1.0
@@ -460,6 +464,60 @@ nodes {
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
+}
+nodes {
+  position {
+    x: 58.9
+    y: 182.0
+    z: 0.0
+    w: 1.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 0.86
+    w: 1.0
+  }
+  size {
+    x: 16.0
+    y: 16.0
+    z: 0.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_BOX
+  blend_mode: BLEND_MODE_ALPHA
+  texture: "hud/no_notification"
+  id: "notification_type"
+  xanchor: XANCHOR_NONE
+  yanchor: YANCHOR_NONE
+  pivot: PIVOT_SW
+  adjust_mode: ADJUST_MODE_FIT
+  layer: "items_layer"
+  inherit_alpha: true
+  slice9 {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 0.0
+  }
+  clipping_mode: CLIPPING_MODE_NONE
+  clipping_visible: true
+  clipping_inverted: false
+  alpha: 1.0
+  template_node_child: false
+  size_mode: SIZE_MODE_AUTO
 }
 layers {
   name: "background_layer"

@@ -7,23 +7,25 @@ function init(self)
 	self.hp_potion_image = gui.get_node('hp_potion_image')
 	self.user_feedback_text = gui.get_node('user_feedback_text')
 	self.key_image = gui.get_node('key_image')
-	
+	self.notification_icon = gui.get_node('notification_type')
 	self.say = function()
-		if  gui.get_text(self.user_feedback_text) ~= messages[1] 
-		and messages[1] ~= nil
-		then
-			gui.set_text(
-				self.user_feedback_text,
-				messages[1]
-			)
-			sound.play('#hud_notification')
-			timer.delay(5, false, self.stop_speaking())
-			table.remove(messages, 1)
+		if messages[1] ~= nil then
+			if gui.get_text(self.user_feedback_text) ~= messages[1][1] then
+				gui.play_flipbook(self.notification_icon, messages[1][2])
+				gui.set_text(
+					self.user_feedback_text,
+					messages[1][1]
+				)
+				sound.play('#hud_notification')
+				timer.delay(5, false, self.stop_speaking())
+				table.remove(messages, 1)
+			end
 		end
 	end
 
 	self.stop_speaking = function()
 		return function()
+			gui.play_flipbook(self.notification_icon, hash('no_notification'))
 			gui.set_text(self.user_feedback_text, '')
 		end
 	end

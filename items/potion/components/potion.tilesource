@@ -1,4 +1,4 @@
-image: "/itens/potion/images/potions.png"
+image: "/items/potion/images/potions.png"
 tile_width: 16
 tile_height: 16
 tile_margin: 0

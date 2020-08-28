@@ -1,4 +1,4 @@
-tile_set: "/itens/key/components/key.tilesource"
+tile_set: "/items/key/components/key.tilesource"
 default_animation: "key"
 material: "/builtins/materials/sprite.material"
 blend_mode: BLEND_MODE_ALPHA

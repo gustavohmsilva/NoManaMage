@@ -4,6 +4,12 @@ go.property('sprite', hash(''))
 
 function init(self)
 	msg.post('#sprite', 'play_animation', {id = self.sprite})
+	self.message_constructor = function(text)
+		return {text, hash('general_message')}
+	end
+	self.dispatch_message = function(text)
+		table.insert(messages, 1, self.message_constructor(text))
+	end
 end
 
 function on_message(self, message_id, message, sender)
@@ -14,16 +20,16 @@ function on_message(self, message_id, message, sender)
 	then
 		if self.sprite == hash('hp_potion') then
 			mage_life = mage_life + 1
-			table.insert(messages, 1, 'Oh yeah! A Life Potion!')
+			self.dispatch_message('Oh yeah! A Life Potion!')
 		elseif self.sprite == hash('hp_giga_potion') then
 			mage_life = mage_life + 2
-			table.insert(messages, 1, 'Oh My GOD! A GIGA Life Potion')
+			self.dispatch_message('Oh My GOD! A GIGA Life Potion')
 		elseif self.sprite == hash('mana_potion') then
 			mage_mana = mage_mana + 1
-			table.insert(messages, 1, 'Oh yeah! Now I can teleport one more time!')
+			self.dispatch_message('Oh yeah! Now I can teleport one more time!')
 		elseif self.sprite == hash('mana_giga_potion') then
 			mage_mana = mage_mana + 2
-			table.insert(messages, 1, 'Oh My GOD! TWO TELEPORTS!')
+			self.dispatch_message('Oh My GOD! TWO TELEPORTS!')
 		end
 		go.delete()
 	end

@@ -136,7 +136,7 @@ instances {
 }
 instances {
   id: "hp_potion"
-  prototype: "/itens/potion/potion.go"
+  prototype: "/items/potion/potion.go"
   position {
     x: 0.0
     y: 0.0
@@ -164,7 +164,7 @@ instances {
 }
 instances {
   id: "mana_potion"
-  prototype: "/itens/potion/potion.go"
+  prototype: "/items/potion/potion.go"
   position {
     x: 79.0
     y: -1.0

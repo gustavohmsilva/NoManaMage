@@ -1,6 +1,6 @@
 components {
   id: "hud"
-  component: "/gui/hud/hud.gui"
+  component: "/gui/hud/components/hud.gui"
   position {
     x: 0.0
     y: 0.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "hud_notification"
-  component: "/gui/hud/hud_notification.sound"
+  component: "/gui/hud/components/hud_notification.sound"
   position {
     x: 0.0
     y: 0.0

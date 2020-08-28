@@ -139,7 +139,7 @@ instances {
 }
 instances {
   id: "key"
-  prototype: "/itens/key/key.go"
+  prototype: "/items/key/key.go"
   position {
     x: 177.0
     y: 58.0

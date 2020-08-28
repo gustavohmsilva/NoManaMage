@@ -1,6 +1,6 @@
 components {
   id: "key"
-  component: "/itens/key/components/key.script"
+  component: "/items/key/components/key.script"
   position {
     x: 0.0
     y: 0.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "sprite"
-  component: "/itens/key/components/key.sprite"
+  component: "/items/key/components/key.sprite"
   position {
     x: 0.0
     y: 0.0

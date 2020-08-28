@@ -1,6 +1,6 @@
 components {
   id: "script"
-  component: "/itens/potion/components/potion.script"
+  component: "/items/potion/components/potion.script"
   position {
     x: 0.0
     y: 0.0
@@ -15,7 +15,7 @@ components {
 }
 components {
   id: "sprite"
-  component: "/itens/potion/components/potion.sprite"
+  component: "/items/potion/components/potion.sprite"
   position {
     x: 0.0
     y: 0.0

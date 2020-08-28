@@ -1,0 +1,91 @@
+animations {
+  id: "devil_message"
+  images {
+    image: "/gui/hud/images/IconDevil.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "ghost_message"
+  images {
+    image: "/gui/hud/images/IconGhost.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "dungeon_guide_message"
+  images {
+    image: "/gui/hud/images/IconLich.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "pixie_message"
+  images {
+    image: "/gui/hud/images/IconPixie.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "skeleton_message"
+  images {
+    image: "/gui/hud/images/IconSkeleton.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "zombie_message"
+  images {
+    image: "/gui/hud/images/IconZombie.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "general_message"
+  images {
+    image: "/gui/hud/images/IconGeneral.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "no_notification"
+  images {
+    image: "/gui/hud/images/no_notification.png"
+    sprite_trim_mode: SPRITE_TRIM_MODE_OFF
+  }
+  playback: PLAYBACK_NONE
+  fps: 1
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0
