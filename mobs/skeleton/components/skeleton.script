@@ -21,7 +21,7 @@ function init(self)
 					messages, 
 					1, 
 					{
-						'Oh no, you\'ve been noticed by a Ugly Skeleton',
+						'Oh no, you\'ve been noticed by a Skeleton',
 						hash('skeleton_message')
 					}
 				)

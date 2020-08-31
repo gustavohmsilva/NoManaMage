@@ -29,3 +29,6 @@ max_tile_count = 9999999
 gravity_y = 0.0
 debug = 0
 
+[collection_proxy]
+max_count = 16
+

@@ -20,7 +20,7 @@ instances {
   }
 }
 instances {
-  id: "passage"
+  id: "passage_out"
   prototype: "/passages/passage/passage.go"
   position {
     x: 8.0
@@ -53,7 +53,7 @@ instances {
   }
 }
 instances {
-  id: "passage1"
+  id: "passage_in"
   prototype: "/passages/passage/passage.go"
   position {
     x: 8.0

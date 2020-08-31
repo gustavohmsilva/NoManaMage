@@ -61,6 +61,12 @@ function init(self)
 				load_and_enable(level, currently_enabled)
 			end
 		},{
+			hash('load_dungeon_maze_2'),
+			function()
+				local level = 'level_selector#dungeon_maze_2'
+				load_and_enable(level, currently_enabled)
+			end
+		},{
 			hash('load_game_over'),
 			function()
 				local level = 'level_selector#game_over'

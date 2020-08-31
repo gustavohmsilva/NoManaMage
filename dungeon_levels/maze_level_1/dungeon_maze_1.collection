@@ -1,2 +1,175 @@
 name: "dungeon_maze_1"
+instances {
+  id: "map_level_6"
+  prototype: "/maps/map_level_6.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "hud"
+  prototype: "/gui/hud/hud.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mage"
+  prototype: "/mage/mage.go"
+  children: "mage_cam"
+  position {
+    x: -32.0
+    y: 67.0
+    z: 0.02
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mage_cam"
+  prototype: "/mage/mage_cam.go"
+  children: "mouse_pointer"
+  position {
+    x: -152.0
+    y: -80.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "passage_in"
+  prototype: "/passages/passage/passage.go"
+  position {
+    x: -32.0
+    y: 77.0
+    z: 0.01
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "passage"
+    properties {
+      id: "sprite"
+      value: "door"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destination"
+      value: "load_dungeon_level_4"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destiny_position"
+      value: "8.0, -58.0, 0.03"
+      type: PROPERTY_TYPE_VECTOR3
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "mouse_pointer"
+  prototype: "/gui/mouse_pointer/mouse_pointer.go"
+  position {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "passage_out"
+  prototype: "/passages/passage/passage.go"
+  position {
+    x: 63.0
+    y: -2.0
+    z: 0.01
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "passage"
+    properties {
+      id: "sprite"
+      value: "hatch"
+      type: PROPERTY_TYPE_HASH
+    }
+    properties {
+      id: "destination"
+      value: "load_maze"
+      type: PROPERTY_TYPE_HASH
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 scale_along_z: 0
