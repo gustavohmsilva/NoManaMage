@@ -8,6 +8,8 @@ function init(self)
 	self.user_feedback_text = gui.get_node('user_feedback_text')
 	self.key_image = gui.get_node('key_image')
 	self.notification_icon = gui.get_node('notification_type')
+	self.hp_potion_counter = gui.get_node('hp_potion_counter')
+	self.mana_potion_counter = gui.get_node('mana_potion_counter')
 	self.say = function()
 		if messages[1] ~= nil then
 			if gui.get_text(self.user_feedback_text) ~= messages[1][1] then
@@ -29,6 +31,8 @@ function init(self)
 			gui.set_text(self.user_feedback_text, '')
 		end
 	end
+	gui.set_enabled(self.hp_potion_counter, mage_life > 2)
+	gui.set_enabled(self.mana_potion_counter, mage_mana > 2)
 end
 
 function update(self, dt)
@@ -43,6 +47,10 @@ function update(self, dt)
 	else
 		gui.play_flipbook(self.mana_potion_image, 'mana_potion')
 	end
+	gui.set_enabled(self.hp_potion_counter, mage_life > 2)
+	gui.set_text(self.hp_potion_counter, tostring(mage_life))
+	gui.set_enabled(self.mana_potion_counter, mage_mana > 2)
+	gui.set_text(self.mana_potion_counter, tostring(mage_mana))
 	gui.set_enabled(self.key_image, mage_has_key)
 	gui.set_enabled(self.hp_potion_image, mage_life > 0)
 	gui.set_enabled(self.mana_potion_image, mage_mana > 0)

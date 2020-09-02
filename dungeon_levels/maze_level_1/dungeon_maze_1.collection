@@ -54,6 +54,14 @@ instances {
     z: 0.0
     w: 1.0
   }
+  component_properties {
+    id: "script"
+    properties {
+      id: "on_death"
+      value: "load_dungeon_level_4"
+      type: PROPERTY_TYPE_HASH
+    }
+  }
   scale3 {
     x: 1.0
     y: 1.0
@@ -162,9 +170,29 @@ instances {
     }
     properties {
       id: "destination"
-      value: "load_maze"
+      value: "load_dungeon_maze_2"
       type: PROPERTY_TYPE_HASH
     }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
+instances {
+  id: "ghost"
+  prototype: "/mobs/ghost/ghost.go"
+  position {
+    x: 25.0
+    y: 51.0
+    z: 0.02
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
   }
   scale3 {
     x: 1.0

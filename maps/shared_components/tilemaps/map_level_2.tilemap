@@ -18694,7 +18694,7 @@ layers {
   cell {
     x: 16
     y: 3
-    tile: 49
+    tile: 48
     h_flip: 0
     v_flip: 0
   }

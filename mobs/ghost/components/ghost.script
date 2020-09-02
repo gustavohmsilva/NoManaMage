@@ -1,41 +1,76 @@
 function init(self)
-	-- Add initialization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
+	msg.post('.', 'acquire_input_focus')
+	table.insert(
+		messages, 
+		1, 
+		{
+			'It seems this floor is haunted...',
+			hash('ghost_message')
+		}
+	)
 
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	self.custom = {
+		mage_moved = false,
+		const_speed = 600,
+		fn_input_mage_moved = function(self, act_id, act)
+			if  (act_id == hash('move_up') 
+			or  act_id == hash('move_down')
+			or  act_id == hash('move_left')
+			or  act_id == hash('move_right'))
+			and act.released then
+				self.custom.mage_moved = true
+			end
+		end,
+		fn_update_move = function(self, dt)
+			if self.custom.mage_moved then
+				sound.play('#sound', {gain = 0.1})
+				local curr_position = go.get_position()
+				local mage_position = go.get_world_position('mage')
+				local direction = vmath.vector3()
+				if curr_position.x > mage_position.x then
+					direction.x = -1
+				elseif curr_position.x < mage_position.x then
+					direction.x = 1
+				end
+				if curr_position.y > mage_position.y then
+					direction.y = -1
+				elseif curr_position.y < mage_position.y then
+					direction.y = 1
+				end
+				go.set_position(
+					curr_position + direction * self.custom.const_speed * dt
+				)
+			end
+		end,
+		fn_message_attack_mage = function(self, msg_id, message)
+			if  msg_id == hash('contact_point_response') 
+			and message.other_group == hash('mage') then
+				msg.post(message.other_id, 'Killed', {icon = hash('ghost_message')})
+			end
+		end
+	}
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_update') then 
+			fn(self, dt) 
+		end
+	end
 end
 
 function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Learn more: https://defold.com/manuals/message-passing/
-	-- Remove this function if not needed
+for fn_name, fn in pairs(self.custom) do
+	if string.find(fn_name, 'fn_message') then 
+		fn(self, message_id, message) 
+	end
+end
 end
 
 function on_input(self, action_id, action)
-	-- Add input-handling code here. The game object this script is attached to
-	-- must have acquired input focus:
-	--
-	--    msg.post(".", "acquire_input_focus")
-	--
-	-- All mapped input bindings will be received. Mouse and touch input will
-	-- be received regardless of where on the screen it happened.
-	-- Learn more: https://defold.com/manuals/input/
-	-- Remove this function if not needed
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
+	for fn_name, fn in pairs(self.custom) do
+		if string.find(fn_name, 'fn_input') then 
+			fn(self, action_id, action) 
+		end
+	end
 end

@@ -70,7 +70,8 @@ function init(self)
 			end
 		end,
 		fn_message_on_death = function(self, msg_id, message)
-			if msg_id == hash('Killed')  and self.custom.unique then
+			if msg_id == hash('Killed') and self.custom.unique then
+				print('entrou')
 				if mage_life > 0 and self.custom.unique then
 					mage_life = mage_life - 1
 					self.custom.unique = false
