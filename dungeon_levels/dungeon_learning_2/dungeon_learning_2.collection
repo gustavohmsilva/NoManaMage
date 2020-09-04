@@ -48,7 +48,7 @@ instances {
   }
 }
 instances {
-  id: "passage"
+  id: "passage_in"
   prototype: "/passages/passage/passage.go"
   position {
     x: 104.0
@@ -168,12 +168,12 @@ instances {
   }
 }
 instances {
-  id: "passage2"
+  id: "passage_out"
   prototype: "/passages/passage/passage.go"
   position {
     x: 280.0
     y: 88.0
-    z: 0.03
+    z: 0.02
   }
   rotation {
     x: 0.0

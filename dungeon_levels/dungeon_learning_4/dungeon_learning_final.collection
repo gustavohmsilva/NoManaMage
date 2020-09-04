@@ -200,4 +200,32 @@ instances {
     z: 1.0
   }
 }
+instances {
+  id: "mana_potion"
+  prototype: "/items/potion/potion.go"
+  position {
+    x: 8.0
+    y: -55.0
+    z: 0.01
+  }
+  rotation {
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0
+  }
+  component_properties {
+    id: "script"
+    properties {
+      id: "sprite"
+      value: "mana_potion"
+      type: PROPERTY_TYPE_HASH
+    }
+  }
+  scale3 {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+  }
+}
 scale_along_z: 0

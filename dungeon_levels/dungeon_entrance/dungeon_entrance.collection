@@ -1,6 +1,6 @@
 name: "dungeon_entrance"
 instances {
-  id: "map"
+  id: "map_level_1"
   prototype: "/maps/map_level_1.go"
   position {
     x: -379.0

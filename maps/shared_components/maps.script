@@ -1,5 +1,21 @@
+require 'modules.levels'
+
+local function check_level()
+	for _,level in pairs(levels) do
+		if level.hash == go.get_id() then
+			if level.visited then
+				for _, game_obj in ipairs(level.to_disable) do
+					go.delete(game_obj)
+				end
+			end
+			level.visited = true
+		end
+	end
+end
+
 function init(self)
 	sound.play('#dungeon_soundtrack')
+	check_level()
 end
 
 function final(self)
